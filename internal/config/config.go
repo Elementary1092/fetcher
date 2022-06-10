@@ -8,7 +8,7 @@ import (
 
 type Configuration struct {
 	ServerConfig ServerConfig `yaml:"server"`
-	DBConfig     DBConfig     `yaml:"db_config"`
+	DBConfig     DBConfig     `yaml:"db"`
 }
 
 type ServerConfig struct {

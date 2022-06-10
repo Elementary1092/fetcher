@@ -1,4 +1,4 @@
-listen:
+server:
   address: localhost
   port: 8000
   fetch_from: https://gorest.co.in/public/v1/posts
