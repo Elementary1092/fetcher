@@ -46,19 +46,19 @@ func (s *service) FetchPage(ctx context.Context, page int32) error {
 	}
 
 	s.logger.Info("Unmarshalling json")
-	posts := make([]*domain.PostDTO, 0)
+	posts := &domain.Posts{Data: make([]*domain.PostDTO, 0)}
 	err = json.Unmarshal(body, posts)
 	if err != nil {
-		s.logger.Errorf("Got error while unmrshalling: %v", err)
+		s.logger.Errorf("Got error while unmarshalling: %v", err)
 		return err
 	}
 
 	s.logger.Infof("Converting into sotrable posts")
-	storablePosts := make([]*domain.Post, len(posts))
-	for i, postDTO := range posts {
+	storablePosts := make([]*domain.Post, len(posts.Data))
+	for i, postDTO := range posts.Data {
 		storablePosts[i] = postDTO.FormPost()
 	}
 
 	s.logger.Info("Trying to save posts into the database")
-	return s.storage.SaveAll(ctx, storablePosts)
+	return s.storage.SaveAll(context.Background(), storablePosts)
 }

@@ -33,7 +33,7 @@ func (s *server) StartFetching(ctx context.Context, request *fetch.FetchRequest)
 	}
 
 	pages := s.pagesLeft
-	for i := int32(0); i < pages; i++ {
+	for i := int32(1); i <= pages; i++ {
 		go func(page int32) {
 			err := s.service.FetchPage(ctx, page)
 			if err != nil {

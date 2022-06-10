@@ -1,5 +1,9 @@
 package domain
 
+type Posts struct {
+	Data []*PostDTO `json:"data"`
+}
+
 type PostDTO struct {
 	Id     int32  `json:"id"`
 	UserId int32  `json:"user_id"`

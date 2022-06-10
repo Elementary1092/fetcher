@@ -14,7 +14,7 @@ type Post struct {
 func (p *Post) String() string {
 	var str strings.Builder
 	str.WriteString("Post {")
-	str.WriteString("; user_id: " + strconv.Itoa(int(p.UserId)))
+	str.WriteString("user_id: " + strconv.Itoa(int(p.UserId)))
 	str.WriteString("; title: " + shorten(p.Title))
 	str.WriteString("; body: " + shorten(p.Body) + "}")
 

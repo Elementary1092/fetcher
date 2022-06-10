@@ -51,7 +51,7 @@ func main() {
 		logger.Fatalf("Unable to start server due to: %v", err)
 	}
 
-	logger.Info("Initializing gRPC server on %s:%s", cfg.ServerConfig.Address, cfg.ServerConfig.Port)
+	logger.Infof("Initializing gRPC server on %s:%s", cfg.ServerConfig.Address, cfg.ServerConfig.Port)
 	grpcServer := grpc.NewServer()
 	fetch.RegisterFetchServiceServer(grpcServer, server)
 

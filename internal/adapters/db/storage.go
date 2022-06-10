@@ -64,8 +64,8 @@ func (p *postgreSQLStorage) formFieldsToBeInserted(posts []*domain.Post) (string
 		}
 
 		if _, err := str.WriteString(
-			fmt.Sprintf("(%d, %s, %s", post.UserId, post.Title, post.Title)); err != nil {
-			p.logger.Warnf("Got error while inserting field: %v", err)
+			fmt.Sprintf("(%d, $$%s$$, $$%s$$)", post.UserId, post.Title, post.Title)); err != nil {
+			p.logger.Warnf("Got error while forming insert query: %v", err)
 			return "", err
 		}
 	}
