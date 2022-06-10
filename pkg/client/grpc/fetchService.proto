@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package services;
+
+option go_package = "github.com/elem1092/fetch";
+
+service FetchService {
+  rpc StartFetching (FetchRequest) returns (FetchStatus);
+  rpc GetStatus (EmptyMessage) returns (FetchStatus);
+  rpc GetError (EmptyMessage) returns (EmptyMessage);
+}
+
+//Empty message is not used
+//It is introduced to fulfill rpc requirements
+message EmptyMessage {
+
+}
+
+message FetchRequest {
+  optional int32 pages = 1;
+}
+
+enum Status {
+  FETCHING = 0;
+  FETCHED = 1;
+  ERROR = 2;
+}
+
+//If status is ERROR, GetStatus returns error which occurred during fetching
+message FetchStatus {
+  Status statusCode = 1;
+}
