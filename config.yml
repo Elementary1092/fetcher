@@ -2,7 +2,7 @@ server:
   address: 127.0.0.1
   port: 8000
   fetch_from: https://gorest.co.in/public/v1/posts
-  pages: 5
+  pages: 50
 
 db:
   address: 127.0.0.1
@@ -10,4 +10,4 @@ db:
   username: postgres
   password: 1029384756
   db_name: demo
-  max_attempts: 50
+  max_attempts: 5
