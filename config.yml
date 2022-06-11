@@ -10,4 +10,4 @@ db:
   username: postgres
   password: 1029384756
   db_name: demo
-  max_attempts: 5
+  max_attempts: 50
