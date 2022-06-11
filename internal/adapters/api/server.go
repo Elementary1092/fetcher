@@ -80,5 +80,5 @@ func (s *server) GetError(ctx context.Context, r *fetch.EmptyMessage) (*fetch.Em
 	err := s.err
 	s.mutex.Unlock()
 
-	return nil, err
+	return &fetch.EmptyMessage{}, err
 }

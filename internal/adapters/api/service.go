@@ -53,7 +53,7 @@ func (s *service) FetchPage(ctx context.Context, page int32) error {
 		return err
 	}
 
-	s.logger.Infof("Converting into sotrable posts")
+	s.logger.Info("Converting into storable posts")
 	storablePosts := make([]*domain.Post, len(posts.Data))
 	for i, postDTO := range posts.Data {
 		storablePosts[i] = postDTO.FormPost()

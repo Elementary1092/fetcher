@@ -6,5 +6,6 @@
 *.out
 *.test
 *.log
+*.go.un~
 .idea/
 go.work
