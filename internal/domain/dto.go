@@ -15,6 +15,6 @@ func (dto *PostDTO) FormPost() *Post {
 	return &Post{
 		UserId: dto.UserId,
 		Title:  dto.Title,
-		Body:   dto.Title,
+		Body:   dto.Body,
 	}
 }
